@@ -9,7 +9,7 @@ def set_seed(seed):
     torch.manual_seed(seed)
 
 def set_wandb(notes, params):
-    wandb.init(notes=notes, entity="takkat14", project="gan-hse-hw1")
+    run = wandb.init(notes=notes, entity="takkat14", project="gan-hse-hw1")
     wandb.watch_called = False  # Re-run the model without restarting the runtime, unnecessary after our next release
 
     # WandB – Config is a variable that holds and saves hyperparameters and inputs
@@ -21,4 +21,4 @@ def set_wandb(notes, params):
     config.no_cuda = False  # disables CUDA training
     config.seed = params['SEED']  # random seed (default: 42)
     config.log_interval = params['LOG_INTERVAL']  # how many batches to wait before logging training status
-    return config
+    return config, run
