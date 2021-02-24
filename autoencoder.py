@@ -1,3 +1,7 @@
+  import torch
+import torch.nn as nn
+import torch.nn.functional as F
+
 class Block(nn.Module):
     def __init__(self, in_features, out_features, kernel, stride=1, bias=False, upsample=False):
         super().__init__()
