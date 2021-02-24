@@ -1,5 +1,6 @@
 import torch
 import wandb
+import numpy as np
 
 def set_seed(seed):
     torch.backends.cudnn.deterministic = True
@@ -20,4 +21,4 @@ def set_wandb(notes, params):
     config.no_cuda = False  # disables CUDA training
     config.seed = params['SEED']  # random seed (default: 42)
     config.log_interval = params['LOG_INTERVAL']  # how many batches to wait before logging training status
-    return config    
+    return config
